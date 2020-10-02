@@ -25,21 +25,7 @@ namespace OutlookControll
         }
 
         public MailSendType SendType = MailSendType.NoSend;
-        private MailItem mailItem;
 
-        private DialogResult GetAttachmentsInfo(MailItem mailItem)
-        {
-            StringBuilder attachmentInfo = new StringBuilder();
-            Attachments mailAttachments = (Attachments)mailItem.Attachments;
-            if (mailItem.Attachments.Count == 0)
-            {
-                return MessageBox.Show(" ", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                return DialogResult.OK;
-            }
-        }
         private void Btn_encryption_Click(object sender, EventArgs e)
         {
    
@@ -70,8 +56,6 @@ namespace OutlookControll
             Btn_standard_Click.DialogResult = DialogResult.OK;
 
             Controls.Add(Btn_standard_Click);
-
-            GetAttachmentsInfo(mailItem);
             
             SendType = MailSendType.Normal;
 

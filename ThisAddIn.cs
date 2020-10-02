@@ -19,6 +19,7 @@ using System.Threading;
 using Microsoft.Office.Tools;
 using Microsoft.VisualStudio.Tools.Applications.Runtime;
 
+
 namespace OutlookControll
 {
     public partial class ThisAddIn
