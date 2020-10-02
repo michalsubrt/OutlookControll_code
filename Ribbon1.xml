@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="OnLoad" loadImage="GetImage">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabHome">
+        <group id="Encrypting" label="Encrypting">
+          <button id="OptionButton" label="Nastavení šifrování" 
+                  size="normal" onAction="OptionButtonOnAction" image="Images\Encrypted-Email-Icon.jpg"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+
