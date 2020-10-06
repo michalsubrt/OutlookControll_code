@@ -4,7 +4,10 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Attachments = Microsoft.Office.Tools.Outlook.Attachments;
 using Microsoft.Office.Interop.Outlook;
+<<<<<<< HEAD
 using System.Linq;
+=======
+>>>>>>> c0e768362f64f2594c02ee214df8c6ed4c46652a
 
 namespace OutlookControll
 
@@ -27,6 +30,7 @@ namespace OutlookControll
 
         public MailSendType SendType = MailSendType.NoSend;
 
+<<<<<<< HEAD
 
         private void Btn_encryption_Click(object sender, EventArgs e)
         { 
@@ -55,6 +59,15 @@ namespace OutlookControll
                 }
 
             }
+=======
+        private void Btn_encryption_Click(object sender, EventArgs e)
+        {
+   
+            AddItemsForm f2 = new AddItemsForm();
+            f2.ShowDialog();
+
+            this.Hide();
+>>>>>>> c0e768362f64f2594c02ee214df8c6ed4c46652a
         }
 
         private void Btn_cancel_Click(object sender, EventArgs e)
@@ -74,17 +87,26 @@ namespace OutlookControll
             // vytvoreni a inicializace tlacitka Btn_standard_Click
             Button Btn_standard_Click = new Button();
 
+<<<<<<< HEAD
             // Tlacitko po stistknuti vrati hodnotu DialogResult.OK
             Btn_standard_Click.DialogResult = DialogResult.OK;
 
             Controls.Add(Btn_standard_Click);
 
+=======
+         // Tlacitko po stistknuti vrati hodnotu DialogResult.OK
+            Btn_standard_Click.DialogResult = DialogResult.OK;
+
+            Controls.Add(Btn_standard_Click);
+            
+>>>>>>> c0e768362f64f2594c02ee214df8c6ed4c46652a
             SendType = MailSendType.Normal;
 
             this.Hide();
 
         }
 
+<<<<<<< HEAD
         private DialogResult GetAttachmentsInfo(MailItem mailItem)
         {
             StringBuilder attachmentInfo = new StringBuilder();
@@ -98,10 +120,15 @@ namespace OutlookControll
                 return DialogResult.OK;
             }
         }
+=======
+>>>>>>> c0e768362f64f2594c02ee214df8c6ed4c46652a
 
     }
 }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c0e768362f64f2594c02ee214df8c6ed4c46652a

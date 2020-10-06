@@ -33,9 +33,15 @@
             this.lbl_phone = new System.Windows.Forms.Label();
             this.lbl_expiration = new System.Windows.Forms.Label();
             this.txt_phone = new System.Windows.Forms.TextBox();
+<<<<<<< HEAD
             this.RB2 = new System.Windows.Forms.RadioButton();
             this.RB3 = new System.Windows.Forms.RadioButton();
             this.RB1 = new System.Windows.Forms.RadioButton();
+=======
+            this.RB1 = new System.Windows.Forms.RadioButton();
+            this.RB2 = new System.Windows.Forms.RadioButton();
+            this.RB3 = new System.Windows.Forms.RadioButton();
+>>>>>>> c0e768362f64f2594c02ee214df8c6ed4c46652a
             this.ExpirationDateGroup = new System.Windows.Forms.GroupBox();
             this.ExpirationDateGroup.SuspendLayout();
             this.SuspendLayout();
@@ -98,6 +104,24 @@
             this.txt_phone.TabIndex = 4;
             this.txt_phone.TextChanged += new System.EventHandler(this.Txt_phone_text);
             // 
+<<<<<<< HEAD
+=======
+            // RB1
+            // 
+            this.RB1.AutoSize = true;
+            this.RB1.BackColor = System.Drawing.Color.Transparent;
+            this.RB1.Checked = true;
+            this.RB1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RB1.Location = new System.Drawing.Point(6, 20);
+            this.RB1.Name = "RB1";
+            this.RB1.Size = new System.Drawing.Size(63, 20);
+            this.RB1.TabIndex = 5;
+            this.RB1.TabStop = true;
+            this.RB1.Text = "1 den";
+            this.RB1.UseVisualStyleBackColor = false;
+            this.RB1.CheckedChanged += new System.EventHandler(this.RB1_CheckedChanged);
+            // 
+>>>>>>> c0e768362f64f2594c02ee214df8c6ed4c46652a
             // RB2
             // 
             this.RB2.AutoSize = true;
@@ -126,6 +150,7 @@
             this.RB3.UseVisualStyleBackColor = false;
             this.RB3.CheckedChanged += new System.EventHandler(this.RB3_CheckedChanged);
             // 
+<<<<<<< HEAD
             // RB1
             // 
             this.RB1.AutoSize = true;
@@ -141,6 +166,8 @@
             this.RB1.UseVisualStyleBackColor = false;
             this.RB1.CheckedChanged += new System.EventHandler(this.RB1_CheckedChanged);
             // 
+=======
+>>>>>>> c0e768362f64f2594c02ee214df8c6ed4c46652a
             // ExpirationDateGroup
             // 
             this.ExpirationDateGroup.BackColor = System.Drawing.Color.Transparent;
@@ -187,9 +214,15 @@
         private System.Windows.Forms.Label lbl_phone;
         private System.Windows.Forms.Label lbl_expiration;
         private System.Windows.Forms.TextBox txt_phone;
+<<<<<<< HEAD
         private System.Windows.Forms.RadioButton RB2;
         private System.Windows.Forms.RadioButton RB3;
         private System.Windows.Forms.RadioButton RB1;
+=======
+        private System.Windows.Forms.RadioButton RB1;
+        private System.Windows.Forms.RadioButton RB2;
+        private System.Windows.Forms.RadioButton RB3;
+>>>>>>> c0e768362f64f2594c02ee214df8c6ed4c46652a
         private System.Windows.Forms.GroupBox ExpirationDateGroup;
     }
 }
