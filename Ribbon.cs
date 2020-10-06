@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Microsoft.Office.Core;
+using OutlookControll.Properties;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
 using Office = Microsoft.Office.Core;
 
 // TODO:  Follow these steps to enable the Ribbon (XML) item:
@@ -14,7 +16,7 @@ using Office = Microsoft.Office.Core;
 
 //  protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
 //  {
-//      return new Ribbon1();
+//      return new Ribbon();
 //  }
 
 // 2. Create callback methods in the "Ribbon Callbacks" region of this class to handle user
@@ -30,20 +32,29 @@ using Office = Microsoft.Office.Core;
 namespace OutlookControll
 {
     [ComVisible(true)]
-    public class Ribbon1 : Office.IRibbonExtensibility
+    public class Ribbon : Office.IRibbonExtensibility
     {
         private Office.IRibbonUI ribbon;
 
-        public Ribbon1()
+        public Ribbon()
         {
+        }
 
+        public Bitmap ImageLogoButton(IRibbonControl control)
+        {
+            return Resources.logoPHP;
+        }
+        public System.Windows.Forms.DialogResult OptionsClick (IRibbonControl control)
+        {
+            OptionsForm f3 = new OptionsForm();
+            return f3.ShowDialog();
         }
 
         #region IRibbonExtensibility Members
 
         public string GetCustomUI(string ribbonID)
         {
-            return GetResourceText("OutlookControll.Ribbon1.xml");
+            return GetResourceText("OutlookControll.Ribbon.xml");
         }
 
         #endregion
@@ -83,7 +94,3 @@ namespace OutlookControll
         #endregion
     }
 }
-
-
-
-

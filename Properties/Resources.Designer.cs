@@ -93,6 +93,16 @@ namespace OutlookControll.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logoPHP {
+            get {
+                object obj = ResourceManager.GetObject("logoPHP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap strom {
             get {
                 object obj = ResourceManager.GetObject("strom", resourceCulture);

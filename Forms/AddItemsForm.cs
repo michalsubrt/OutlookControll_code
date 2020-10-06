@@ -60,13 +60,13 @@ namespace OutlookControll
 
         private void Btn_send_ecrypt_Click(object sender, EventArgs e)
         {
-                // vytvoreni a inicializace tlacitka Btn_standard_Click
-                Button Btn_send_ecrypt_Click = new Button();
+            // vytvoreni a inicializace tlacitka Btn_standard_Click
+            Button Btn_send_ecrypt_Click = new Button();
 
-                // Tlacitko po stistknuti vrati hodnotu DialogResult.OK
-                Btn_send_ecrypt_Click.DialogResult = DialogResult.OK;
+            // Tlacitko po stistknuti vrati hodnotu DialogResult.OK
+            Btn_send_ecrypt_Click.DialogResult = DialogResult.OK;
 
-                Controls.Add(Btn_send_ecrypt_Click);
+            Controls.Add(Btn_send_ecrypt_Click);
 
 
             if (Txt_phone1 == String.Empty)
@@ -79,40 +79,51 @@ namespace OutlookControll
                 AddItemsForm f2 = new AddItemsForm();
                 f2.ShowDialog();
             }
-      
-            else {
-                // volani tridy IdMessage
-                IdMessage idMessage = new IdMessage();
-                idMessage.RandomIdMessage(100000,999999);
 
-                string RiD = Convert.ToString(idMessage.RandomIdMessage(10000,999999));
+            else
+            {
+                // prevzeti dat z ActiveCurentItem
+                Microsoft.Office.Interop.Outlook.Application application = new Microsoft.Office.Interop.Outlook.Application();
+                Inspector inspector = application.ActiveInspector();
 
-                // volani tridy SmsPassword
-                SmsPassword smsPassword = new SmsPassword();
-                smsPassword.RNGPasswordString(6);
+                if (inspector.CurrentItem is MailItem inspectorMailItem)
+                {
+                    String Subject = inspectorMailItem.Subject;
+                    String EmailAddress = inspectorMailItem.To;
 
-                string RCode = smsPassword.RNGPasswordString(6);
+                    // volani tridy IdMessage
+                    IdMessage idMessage = new IdMessage();
+                    idMessage.RandomIdMessage(100000, 999999);
 
-                // volani tridy UrlAttribute
-                UrlAttribute urlAttribute = new UrlAttribute();
-                urlAttribute.RNGUrlAttributeString(32);
+                    string RiD = Convert.ToString(idMessage.RandomIdMessage(10000, 999999));
 
-                string RUrl = urlAttribute.RNGUrlAttributeString(32);
+                    // volani tridy SmsPassword
+                    SmsPassword smsPassword = new SmsPassword();
+                    smsPassword.RNGPasswordString(6);
+
+                    string RCode = smsPassword.RNGPasswordString(6);
+
+                    // volani tridy UrlAttribute
+                    UrlAttribute urlAttribute = new UrlAttribute();
+                    urlAttribute.RNGUrlAttributeString(32);
+
+                    string RUrl = urlAttribute.RNGUrlAttributeString(32);
 
 
-                // testovani zobrazovanych promennych z formulare a generovani ID
-                List<string> MyListValues = new List<string>() { Phone_Name + Txt_phone1, 
-                                                                 Date_Send + ThisDate, 
-                                                                 Date_Expiration + ExpirationDate, 
-                                                                 ID_Message + RiD, 
-                                                                 SMS_Code + RCode, 
-                                                                 URL + URL_Address + RUrl + URL_Attribute + RiD,};
+                    // testovani zobrazovanych promennych z formulare a generovani ID
+                    List<string> MyListValues = new List<string>() { Phone_Name + Txt_phone1,
+                                                                 Date_Send + ThisDate,
+                                                                 Date_Expiration + ExpirationDate,
+                                                                 ID_Message + RiD,
+                                                                 SMS_Code + RCode,
+                                                                 URL + URL_Address + RUrl + URL_Attribute + RiD, EmailAddress, Subject};
                     string delimetr = "\n\n";
                     string messageBoxContent = String.Join(delimetr, MyListValues);
                     MessageBox.Show(messageBoxContent);
-                    }
+                }
 
             }
+        }
 
         private void RB1_CheckedChanged(object sender, EventArgs e)
         {

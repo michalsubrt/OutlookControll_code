@@ -161,6 +161,20 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Classes\GetAttachment.cs" />
+    <Compile Include="Classes\UrlConnectorCheck.cs" />
+    <Compile Include="EncryptionRibbon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EncryptionRibbon.Designer.cs">
+      <DependentUpon>EncryptionRibbon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdvanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdvanceForm.Designer.cs">
+      <DependentUpon>AdvanceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChooseFormSend.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,14 +189,29 @@
     </Compile>
     <Compile Include="Classes\Generators.cs" />
     <Compile Include="Microsoft\Office\Tools\Outlook\Attachments.cs" />
+    <Compile Include="Forms\OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="EncryptionRibbon.resx">
+      <DependentUpon>EncryptionRibbon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddItemsForm.resx">
       <DependentUpon>AddItemsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdvanceForm.resx">
+      <DependentUpon>AdvanceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChooseFormSend.resx">
       <DependentUpon>ChooseFormSend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -204,7 +233,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Ribbon1.cs" />
+    <Compile Include="Ribbon.cs">
+      <XmlRibbon>true</XmlRibbon>
+    </Compile>
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -217,13 +248,13 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Ribbon1.xml" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Resources\logoPHP.png" />
     <Content Include="Resources\button_1.jpg" />
     <Content Include="Resources\button_2.jpg" />
     <Content Include="Resources\button_3.jpg" />
     <Content Include="Resources\Encrypted-Email-Icon.jpg" />
+    <EmbeddedResource Include="Ribbon.xml" />
+    <None Include="Resources\logoPHP1.png" />
     <None Include="Resources\strom1.png" />
     <None Include="Resources\strom.png" />
     <None Include="Resources\btn_cancel.png" />

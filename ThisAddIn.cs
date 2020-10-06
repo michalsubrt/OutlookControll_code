@@ -24,12 +24,29 @@ namespace OutlookControll
 {
     public partial class ThisAddIn
     {
+        Outlook.Inspectors inspectors;
+        public static Outlook.MailItem theCurrentEmail;
         // Ovladani tlacitka Odeslat funguje ve vsech pripadech
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            inspectors = this.Application.Inspectors;
+            inspectors.NewInspector += new Outlook.InspectorsEvents_NewInspectorEventHandler(Inspectors_NewInspector);
             Application.ItemSend += new ApplicationEvents_11_ItemSendEventHandler(Application_ItemSend);
         }
 
+        void Inspectors_NewInspector(Microsoft.Office.Interop.Outlook.Inspector Inspector)
+        {
+            theCurrentEmail = null;
+
+            object item = Inspector.CurrentItem;
+            if (item == null)
+                return;
+
+            if (!(item is Outlook.MailItem))
+                return;
+
+            theCurrentEmail = Inspector.CurrentItem as Outlook.MailItem;
+        }
         private bool ProcessEmail(Outlook.MailItem mailItem, MailSendType SendType)
         {
             switch (SendType)
@@ -74,12 +91,13 @@ namespace OutlookControll
         {
             if (Item is MailItem) // ensures Item is a mail item
             {
-                using (Form1 form_ChooseForm = new Form1())
+                // using (Form1 form_ChooseForm = new Form1())
+                using (Form1 ChooseForm = new Form1())
                 {
-                    DialogResult dr = form_ChooseForm.ShowDialog();
+                    DialogResult dr = ChooseForm.ShowDialog();
                     if (dr == DialogResult.OK) // shows the form as a dialog
                     {
-                        Cancel = ProcessEmail((MailItem)Item, form_ChooseForm.SendType);
+                        Cancel = ProcessEmail((MailItem)Item, ChooseForm.SendType);
                         MessageBox.Show("The OK button on the form was clicked.");
                            
                     }
@@ -155,29 +173,11 @@ namespace OutlookControll
             // Note: Outlook no longer raises this event. If you have code that 
             //    must run when Outlook shuts down, see https://go.microsoft.com/fwlink/?LinkId=506785
         }
-
-        public void OptionButtonOnAction(IRibbonControl control)
-        {
-            if (control.Id == "OptionButton")
-            {
-                System.Windows.Forms.MessageBox.Show("Button clicked");
-            }
-        }
-
         protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
-        {
-            return new Ribbon1();
-        }
+         {
+              return new Ribbon();
+         }
 
-        //IRibbonUI myRibbon;
-        //private Explorer currentExplorer;
-
-
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InternalStartup()
         {
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
