@@ -161,28 +161,27 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="ChooseFormSend.cs">
+    <Compile Include="Forms\ChooseFormSend.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChooseFormSend.Designer.cs">
+    <Compile Include="Forms\ChooseFormSend.Designer.cs">
       <DependentUpon>ChooseFormSend.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChooseFormSend1.cs" />
-    <Compile Include="AddItemsForm.cs">
+    <Compile Include="Forms\AddItemsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddItemsForm.Designer.cs">
+    <Compile Include="Forms\AddItemsForm.Designer.cs">
       <DependentUpon>AddItemsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Generators.cs" />
     <Compile Include="Microsoft\Office\Tools\Outlook\Attachments.cs" />
-    <Compile Include="Microsoft\Office\Tools\Outlook\MailItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="AddItemsForm.resx">
+    <EmbeddedResource Include="Forms\AddItemsForm.resx">
       <DependentUpon>AddItemsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChooseFormSend.resx">
+    <EmbeddedResource Include="Forms\ChooseFormSend.resx">
       <DependentUpon>ChooseFormSend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
